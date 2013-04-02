@@ -3,23 +3,18 @@ class ArabicGenerator
    TABLE = {
       "I"  => 1,
       "V"  => 5,
- #     "IX" => 9,
       "X"  => 10,
- #     "XL" => 40,
       "L"  => 50,
- #     "XL" => 90,
       "C"  => 100,
- #     "CD" => 400,
       "D"  => 500,
- #     "CM" => 900,
       "M"  => 1000
     }
 
    def convert(roman_number)
-     arabic_num = 0
-     char = roman_number.split("")
+    arabic_num = 0
+    char = roman_number.split("")
 
-     while char != []
+    while char != []
      	if TABLE[char[1]] == nil
      		arabic_num += TABLE[char.shift]
      	elsif TABLE[char[1]] > TABLE[char[0]]
@@ -30,17 +25,6 @@ class ArabicGenerator
      		arabic_num += TABLE[char.shift]
      	end
      end
-
-     # char.each_with_index do |c, i|
-     # 		if TABLE[char[i + 1]] == nil
-     # 			arabic_num += TABLE[c]
-     # 		elsif TABLE[char[i + 1]] > TABLE[c]
-     #     	return arabic_num += (TABLE[char[i + 1]] - TABLE[c]) # bug here!
-     #    else 
-     #      arabic_num += TABLE[c]
-     #    end
-     # end
-
      return arabic_num 
    end
    
